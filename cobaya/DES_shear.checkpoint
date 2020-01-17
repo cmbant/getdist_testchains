@@ -1,0 +1,29 @@
+sampler:
+  mcmc:
+    converged: false
+    Rminus1_last: 0.04889645266605485
+    proposal_scale: 2.4
+    blocks:
+    - - 2
+      - 3
+      - 4
+    - - 0
+      - 1
+    - - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+    oversampling_factors: null
+    i_last_slow_block: 1
+    burn_in: 0
+    mpi_size: 4
+    measured_speed_list:
+    - 86.63849007434754
+    - 1.3789005770719611
+    - 1.0175281038565311

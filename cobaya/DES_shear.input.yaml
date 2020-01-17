@@ -1,0 +1,89 @@
+likelihood:
+  des_y1.shear: null
+params:
+  A:
+    latex: 10^9 A_s
+    prior:
+      max: 5
+      min: 0.5
+    proposal: 0.01
+    ref:
+      dist: norm
+      loc: 2.2
+      scale: 0.01
+    drop: true
+  ns:
+    latex: n_s
+    prior:
+      max: 1.07
+      min: 0.87
+    proposal: 0.01
+    ref:
+      dist: norm
+      loc: 0.96
+      scale: 0.01
+  H0:
+    latex: H_0
+    prior:
+      max: 91
+      min: 55
+    proposal: 1
+    ref:
+      dist: norm
+      loc: 70
+      scale: 1
+  omegab:
+    latex: \Omega_\mathrm{b}
+    prior:
+      max: 0.07
+      min: 0.03
+    proposal: 0.004
+    drop: true
+    ref:
+      dist: norm
+      loc: 0.0468
+      scale: 0.004
+    renames: omegab
+  omegam:
+    latex: \Omega_\mathrm{m}
+    prior:
+      max: 0.9
+      min: 0.1
+    proposal: 0.02
+    drop: true
+    ref:
+      dist: norm
+      loc: 0.295
+      scale: 0.02
+  omk:
+    latex: \Omega_K
+  ombh2: 'lambda omegab, H0: omegab*(H0/100)**2'
+  mnu: 0.06
+  nnu: 3.046
+  omch2: 'lambda omegam, omegab, mnu, H0: (omegam-omegab-mnu/94.07*(3.046/3)**0.75)*(H0/100)**2'
+  As: 'lambda A: A*1e-9'
+  tau: 0.06
+  YHe:
+    latex: Y_{\rm He}
+  sigma8:
+    latex: \sigma_8
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_m^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_m^{0.25}
+sampler:
+  mcmc:
+    covmat: /home/aml1005/git/cobaya/base_DES_DESpriors.covmat
+    drag: true
+theory:
+  camb:
+    extra_args:
+      num_massive_neutrinos: 1
+modules: /rds/user/aml1005/hpc-work/modules
+output: chains/DES_shear
+timing: true
+debug: false
+resume: true
+force: false
